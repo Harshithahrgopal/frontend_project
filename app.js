@@ -138,7 +138,7 @@ function App() {
       {/* FOOTER */}
       <footer className="global-footer">
         <div className="footer-left">Designed and developed by ZoroTeam</div>
-        <div className="footer-center"><strong>Your Name</strong></div>
+        <div className="footer-center"><strong>HARSHITHA H G</strong></div>
         <div className="footer-right">© 2025 Zoro innovations</div>
       </footer>
     </div>
