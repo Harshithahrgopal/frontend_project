@@ -27,7 +27,7 @@ body, html {
   padding: 30px 40px;
   color: white;
   margin-left: 50px;
-  background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80');
+  background-image: url('bgimg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,6 +48,7 @@ body, html {
   align-items: center;   /* ✅ Center horizontally */
   text-align: center;    /* ✅ Center text */
   max-width: 100%;
+  
 }
 
 
