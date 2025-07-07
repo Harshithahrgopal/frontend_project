@@ -18,7 +18,7 @@ function App() {
 
       if (response.data.success) {
         alert("✅ Login Successful!");
-        // Optional: redirect to dashboard
+      
       } else {
         alert("❌ Invalid Credentials");
       }
@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="main-wrapper">
       <div className="main-container">
-        {/* LEFT PANEL */}
+
         <div className="left-panel">
           <div className="left-panel-content">
             <div className="logo-text">
@@ -63,7 +63,7 @@ function App() {
           </div>
         </div>
 
-        {/* RIGHT PANEL */}
+   
         <div className="right-panel">
           <div className="right-panel-content">
             <div className="toggle-buttons">
@@ -73,7 +73,7 @@ function App() {
 
             <h2 className="login-heading">Logging in as Faculty</h2>
 
-            {/* Faculty ID Input */}
+           
             <div className="form-group input-with-icon">
               <label htmlFor="faculty-id">Faculty ID or Email</label>
               <div className="input-wrapper">
@@ -88,7 +88,7 @@ function App() {
               </div>
             </div>
 
-            {/* Password Input */}
+    
             <div className="form-group input-with-icon">
               <label htmlFor="password">Password</label>
               <div className="input-wrapper">
@@ -111,18 +111,16 @@ function App() {
               </div>
             </div>
 
-            {/* Remember Me */}
             <div className="options">
               <label><input type="checkbox" /> Remember me</label>
             </div>
 
-            {/* Login Button */}
             <button className="login-btn" onClick={handleLogin}>Login</button>
 
-            {/* Divider */}
+          
             <div className="divider">or continue with</div>
 
-            {/* Google Login Button */}
+  
             <button className="google-login-btn">
               <img
                 src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
@@ -135,7 +133,7 @@ function App() {
         </div>
       </div>
 
-      {/* FOOTER */}
+ 
       <footer className="global-footer">
         <div className="footer-left">Designed and developed by ZoroTeam</div>
         <div className="footer-center"><strong>HARSHITHA H G</strong></div>
