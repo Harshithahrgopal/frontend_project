@@ -1,11 +1,32 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        email,
+        password,
+      });
+
+      if (response.data.success) {
+        alert("✅ Login Successful!");
+        // Optional: redirect to dashboard
+      } else {
+        alert("❌ Invalid Credentials");
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert("🚨 Server Error. Please try again later.");
+    }
+  };
 
   return (
     <div className="main-wrapper">
@@ -56,32 +77,39 @@ function App() {
             <div className="form-group input-with-icon">
               <label htmlFor="faculty-id">Faculty ID or Email</label>
               <div className="input-wrapper">
-                <input type="text" id="faculty-id" placeholder="Enter your Faculty ID or email" />
+                <input
+                  type="text"
+                  id="faculty-id"
+                  placeholder="Enter your Faculty ID or email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <FontAwesomeIcon icon={faUser} className="input-icon" />
               </div>
             </div>
 
             {/* Password Input */}
-           <div className="form-group input-with-icon">
-  <label htmlFor="password">Password</label>
-  <div className="input-wrapper">
-    <input
-      type={showPassword ? "text" : "password"}
-      id="password"
-      placeholder="Enter your password"
-    />
-    <FontAwesomeIcon
-      icon={showPassword ? faEyeSlash : faEye}
-      className="input-icon"
-      onClick={() => setShowPassword(!showPassword)}
-      style={{ cursor: 'pointer' }}
-    />
-    <div className="forgot-password">
-      <a href="#">Forgot password?</a>
-    </div>
-  </div>
-</div>
-
+            <div className="form-group input-with-icon">
+              <label htmlFor="password">Password</label>
+              <div className="input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <FontAwesomeIcon
+                  icon={showPassword ? faEyeSlash : faEye}
+                  className="input-icon"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{ cursor: 'pointer' }}
+                />
+                <div className="forgot-password">
+                  <a href="#">Forgot password?</a>
+                </div>
+              </div>
+            </div>
 
             {/* Remember Me */}
             <div className="options">
@@ -89,12 +117,12 @@ function App() {
             </div>
 
             {/* Login Button */}
-            <button className="login-btn">Login</button>
+            <button className="login-btn" onClick={handleLogin}>Login</button>
 
             {/* Divider */}
             <div className="divider">or continue with</div>
 
-            {/* Google Login Button with Colored Icon */}
+            {/* Google Login Button */}
             <button className="google-login-btn">
               <img
                 src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
